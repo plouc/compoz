@@ -1,0 +1,26 @@
+{
+  "name": "@compoz/json-block-module",
+  "version": "0.1.0",
+  "author": "Raphaël Benitte <benitteraphael@gmail.com>",
+  "license": "MIT",
+  "main": "build/index.js",
+  "typings": "build/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "build"
+  ],
+  "dependencies": {
+    "@compoz/core": "0.1.0",
+    "@compoz/ui": "0.1.0",
+    "react-feather": "1.1.6"
+  },
+  "devDependencies": {
+    "typescript": "^3.3.3333"
+  },
+  "scripts": {
+    "dev": "rm -rf build && tsc --watch --pretty --preserveWatchOutput",
+    "build": "rm -rf build && tsc --pretty"
+  }
+}

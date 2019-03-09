@@ -1,0 +1,48 @@
+{
+  "name": "compoz-sample-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@compoz/core": "0.1.0",
+    "@compoz/ui": "0.1.0",
+    "@compoz/container-block-module": "0.1.0",
+    "@compoz/json-block-module": "0.1.0",
+    "@compoz/markdown-block-module": "0.1.0",
+    "@compoz/proxy-block-module": "0.1.0",
+    "@types/jest": "24.0.9",
+    "@types/lodash": "^4.14.122",
+    "@types/node": "11.10.4",
+    "@types/react-dom": "16.8.2",
+    "@types/styled-components": "^4.1.11",
+    "formik": "^1.5.1",
+    "lodash": "^4.17.11",
+    "prettier": "^1.16.4",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-feather": "^1.1.6",
+    "react-scripts": "2.1.5",
+    "react-spring": "^8.0.13",
+    "styled-components": "^4.1.3",
+    "typescript": "3.3.3333"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "fmt": "prettier --color --write \"src/**/*.{js,ts,tsx,json}\""
+  },
+  "workspaces": [
+    "../packages/*"
+  ],
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
