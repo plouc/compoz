@@ -1,4 +1,4 @@
-# mono
+# compoz
 
 ## The model
 
@@ -14,7 +14,7 @@ The `block` model:
 
 ## Modules
 
-Modules are used to augment the ability of **mono**,
+Modules are used to augment the ability of **compoz**,
 They must conform to the following interface:
 
 ```
