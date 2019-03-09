@@ -1,6 +1,6 @@
 {
   "name": "@compoz/ui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Raphaël Benitte <benitteraphael@gmail.com>",
   "license": "MIT",
   "main": "build/index.js",
@@ -12,7 +12,7 @@
     "build"
   ],
   "dependencies": {
-    "@compoz/core": "0.1.0",
+    "@compoz/core": "^0.1.1",
     "@types/styled-components": "^4.1.12",
     "formik": "^1.5.1",
     "react": "^16.8.4",

@@ -1,6 +1,6 @@
 {
   "name": "@compoz/markdown-block-module",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Raphaël Benitte <benitteraphael@gmail.com>",
   "license": "MIT",
   "main": "build/index.js",
@@ -12,8 +12,8 @@
     "build"
   ],
   "dependencies": {
-    "@compoz/core": "0.1.0",
-    "@compoz/ui": "0.1.0",
+    "@compoz/core": "^0.1.1",
+    "@compoz/ui": "^0.1.1",
     "react-feather": "1.1.6",
     "react-markdown": "^4.0.6"
   },

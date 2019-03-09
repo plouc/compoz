@@ -1,6 +1,6 @@
 {
   "name": "@compoz/core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Raphaël Benitte <benitteraphael@gmail.com>",
   "license": "MIT",
   "main": "build/index.js",
