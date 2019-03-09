@@ -854,6 +854,63 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@compoz/container-block-module@0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@compoz/container-block-module/-/container-block-module-0.1.1.tgz#efad8d28fded343181471473c40503f5a99d9f06"
+  integrity sha512-Tl1Xqus3LIcq+prBZ2Fsk+eb90lvGOPEVQDL5fyCjI5mM0y/6LDrf8f6YKhrvuol6kkja+D6KG0NyqdMHNYg2w==
+  dependencies:
+    "@compoz/core" "^0.1.1"
+    "@compoz/ui" "^0.1.1"
+    react-feather "1.1.6"
+
+"@compoz/core@0.1.1", "@compoz/core@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@compoz/core/-/core-0.1.1.tgz#36b556eec61c5926f39a47dcbce3a88a417bdd36"
+  integrity sha512-t2W7cZJqyxVaL9SKP508yEna0s16UM9R0gyA4CI3aKVkM0ZfgPyPTat12M7J9FVq4dG2blAwjjExJm5/dExSZg==
+  dependencies:
+    react "^16.8.4"
+    react-feather "^1.1.6"
+
+"@compoz/json-block-module@0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@compoz/json-block-module/-/json-block-module-0.1.1.tgz#4585cc2753d65fb03d4f05cee62ccb305130dfe0"
+  integrity sha512-7gaKa2JRKo7Uv8cmuFejMpeyzYoLKQw7hUnBH9Fia84d1XT8oSKP3YET7AtiXhisW6A/cvsAKqo3qXjdIHQ2Vg==
+  dependencies:
+    "@compoz/core" "^0.1.1"
+    "@compoz/ui" "^0.1.1"
+    react-feather "1.1.6"
+
+"@compoz/markdown-block-module@0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@compoz/markdown-block-module/-/markdown-block-module-0.1.1.tgz#4b8fa9c171041c532bc096bdbfdad28a23bac1e4"
+  integrity sha512-Qc105BgyHMIsbvM+Mc+7mi+y+pA+7MCFjw3hipmDQhPEh/KX38CAYqaduZdss8jvidqtwRAMl5nwN2PwN+ZW2Q==
+  dependencies:
+    "@compoz/core" "^0.1.1"
+    "@compoz/ui" "^0.1.1"
+    react-feather "1.1.6"
+    react-markdown "^4.0.6"
+
+"@compoz/proxy-block-module@0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@compoz/proxy-block-module/-/proxy-block-module-0.1.1.tgz#4b53e2854a8b9bf79555045cce798172a90ce7c2"
+  integrity sha512-zjiySHsFKs6kvenHGdYGOM2K+lebtCU7dBI2Mhw8TBcDNLv1oCfeuBSuK3Z2I+tVVtA4tfV7jIDU3SYv2eiM4A==
+  dependencies:
+    "@compoz/core" "^0.1.1"
+    "@compoz/ui" "^0.1.1"
+    react-feather "1.1.6"
+
+"@compoz/ui@0.1.1", "@compoz/ui@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@compoz/ui/-/ui-0.1.1.tgz#1060b91a691dc1414b68580980befb5485e30107"
+  integrity sha512-EGGmTrIyuL/ismRheafJnnJ2EJvi1+QJK4WptqqaoBIwPUuo11OHMWEC7c+JwyF1PhS2EtM1FlIYKCJSwR8i3Q==
+  dependencies:
+    "@compoz/core" "^0.1.1"
+    "@types/styled-components" "^4.1.12"
+    formik "^1.5.1"
+    react "^16.8.4"
+    react-feather "^1.1.6"
+    styled-components "^4.1.3"
+
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
@@ -9753,7 +9810,7 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@3.3.3333, typescript@^3.3.3333:
+typescript@3.3.3333:
   version "3.3.3333"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.3.3333.tgz#171b2c5af66c59e9431199117a3bcadc66fdcfd6"
   integrity sha512-JjSKsAfuHBE/fB2oZ8NxtRTk5iGcg6hkYXMnZ3Wc+b2RSqejEqTaem11mHASMnFilHrax3sLK0GDzcJrekZYLw==

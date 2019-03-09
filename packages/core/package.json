@@ -1,8 +1,12 @@
 {
   "name": "@compoz/core",
   "version": "0.1.1",
+  "repository": "https://github.com/plouc/compoz/tree/master/packages/core",
   "author": "Raphaël Benitte <benitteraphael@gmail.com>",
   "license": "MIT",
+  "keywords": [
+    "compoz"
+  ],
   "main": "build/index.js",
   "typings": "build/index.d.ts",
   "publishConfig": {
@@ -12,8 +16,10 @@
     "build"
   ],
   "dependencies": {
-    "react": "^16.8.4",
     "react-feather": "^1.1.6"
+  },
+  "peerDependencies": {
+    "react": "^16.8.4"
   },
   "devDependencies": {
     "typescript": "^3.3.3333"

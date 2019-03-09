@@ -1,8 +1,13 @@
 {
   "name": "@compoz/container-block-module",
   "version": "0.1.1",
+  "repository": "https://github.com/plouc/compoz/tree/master/packages/container-block-module",
   "author": "Raphaël Benitte <benitteraphael@gmail.com>",
   "license": "MIT",
+  "keywords": [
+    "compoz",
+    "compoz-block-module"
+  ],
   "main": "build/index.js",
   "typings": "build/index.d.ts",
   "publishConfig": {
@@ -12,12 +17,15 @@
     "build"
   ],
   "dependencies": {
-    "@compoz/core": "^0.1.1",
-    "@compoz/ui": "^0.1.1",
     "react-feather": "1.1.6"
   },
   "devDependencies": {
     "typescript": "^3.3.3333"
+  },
+  "peerDependencies": {
+    "@compoz/core": "^0.1.1",
+    "@compoz/ui": "^0.1.1",
+    "react": "^16.8.4"
   },
   "scripts": {
     "dev": "rm -rf build && tsc --watch --pretty --preserveWatchOutput",

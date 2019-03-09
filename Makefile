@@ -14,8 +14,8 @@ help:
 init: ## init respository, install deps, build packages
 	@${MAKE} pkgs-install
 	@${MAKE} pkgs-build
+	@${MAKE} app-install
 	@${MAKE} pkgs-link
-	#@${MAKE} app-install
 
 pkgs-install: ## install all packages dependencies
 	@yarn install
