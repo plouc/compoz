@@ -27,7 +27,7 @@ const Builder = function<
                         <GlobalStyle />
                         <Container>
                             <Sidebar>
-                                <Logo>azap</Logo>
+                                <Logo>compoz</Logo>
                                 <PagesNav />
                             </Sidebar>
                             <PageAdmin />
@@ -58,6 +58,7 @@ const Sidebar = styled.div`
 
 const Logo = styled.div`
     font-weight: 900;
-    font-size: 18px;
+    font-size: 16px;
+    text-transform: uppercase;
     padding: ${props => props.theme.spacing}px ${props => props.theme.spacing * 2}px;
 `

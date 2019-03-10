@@ -1,8 +1,7 @@
 {
   "version": "0.1.1",
   "packages": [
-    "packages/*",
-    "sample-app"
+    "packages/*"
   ],
   "npmClient": "yarn",
   "useWorkspaces": true
