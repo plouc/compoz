@@ -1,6 +1,5 @@
 import React, { FormEvent, FunctionComponent, useState, useCallback, CSSProperties } from 'react'
 import { TextArea } from '@compoz/ui'
-import console = require('console');
 
 type Props = {
     value: object,
