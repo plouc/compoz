@@ -25,6 +25,7 @@ pkgs-build: ## build all packages
 	# order matters!
 	@yarn lerna --loglevel warn run build --scope @compoz/core
 	@yarn lerna --loglevel warn run build --scope @compoz/ui
+	@yarn lerna --loglevel warn run build --scope @compoz/api-call-block-module
 	@yarn lerna --loglevel warn run build --scope @compoz/bar-chart-block-module
 	@yarn lerna --loglevel warn run build --scope @compoz/container-block-module
 	@yarn lerna --loglevel warn run build --scope @compoz/json-block-module

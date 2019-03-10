@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@compoz/api-call-block-module": "*",
     "@compoz/bar-chart-block-module": "*",
     "@compoz/container-block-module": "*",
     "@compoz/core": "*",
