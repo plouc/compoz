@@ -22,16 +22,21 @@
     "styled-components": "^4.1.3"
   },
   "devDependencies": {
+    "@types/react": "^16.8.7",
+    "@types/react-dom": "^16.8.2",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
     "typescript": "^3.3.3333"
   },
   "peerDependencies": {
     "@compoz/core": "^0.1.1",
-    "react": "^16.8.4",
+    "@types/react": "^16.8.7",
     "@types/react-dom": "^16.8.2",
+    "react": "^16.8.4",
     "react-dom": "^16.8.4"
   },
   "scripts": {
-    "dev": "rm -rf build && tsc --watch --pretty --preserveWatchOutput",
+    "dev": "tsc --watch --pretty --preserveWatchOutput",
     "build": "rm -rf build && tsc --pretty"
   }
 }

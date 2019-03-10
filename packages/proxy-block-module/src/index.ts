@@ -26,7 +26,7 @@ const proxyModule: BlockModule<ProxyBlock> = {
     renderer: ProxyBlockRenderer,
     configurator: ProxyBlockConfigurator,
     shouldAddChild: () => false,
-    shouldBeAdded: () => true
+    shouldBeAdded: () => true,
 }
 
 export default proxyModule

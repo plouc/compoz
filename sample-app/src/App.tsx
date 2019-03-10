@@ -4,8 +4,10 @@ import container, { ContainerBlock } from '@compoz/container-block-module'
 import markdown, { MarkdownBlock } from '@compoz/markdown-block-module'
 import json, { JsonBlock } from '@compoz/json-block-module'
 import proxy, { ProxyBlock } from '@compoz/proxy-block-module'
-import text, { TextBlock } from './usage/text'
-import apiCall, { ApiCallBlock } from './usage/apiCall.ts'
+import pieChart, { PieChartBlock } from '@compoz/pie-chart-block-module'
+import barChart, { BarChartBlock } from '@compoz/bar-chart-block-module'
+import text, { TextBlock } from './customBlockModules/text'
+import apiCall, { ApiCallBlock } from './customBlockModules/apiCall'
 
 const BoundBuilder = Builder<{
     container: ContainerBlock
@@ -14,6 +16,8 @@ const BoundBuilder = Builder<{
     proxy: ProxyBlock
     text: TextBlock
     apiCall: ApiCallBlock
+    pieChart: PieChartBlock
+    barChart: BarChartBlock
 }>()
 
 const App = () => (
@@ -24,7 +28,9 @@ const App = () => (
             json,
             proxy,
             text,
-            apiCall
+            apiCall,
+            pieChart,
+            barChart
         }}
     />
 )

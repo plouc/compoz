@@ -32,6 +32,16 @@ const ApiCallBlockConfigurator: BlockConfigurator<ApiCallBlock> = ({ block }) =>
                     </>
                 )}
             />
+            <Field
+                name="settings.contextKey"
+                render={({ field, form }: FieldProps<ApiCallBlockSettings>) => (
+                    <>
+                        <FieldLabel>contextKey</FieldLabel>
+                        <TextField type="text" {...field} />
+                        {form.touched.contextKey && form.errors.contextKey && form.errors.contextKey}
+                    </>
+                )}
+            />
         </FormGrid>
     )
 }

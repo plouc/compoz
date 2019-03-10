@@ -3,11 +3,17 @@ import { BlockRenderer } from '@compoz/core'
 import { ChildBlockRenderer } from '@compoz/ui'
 import { ContainerBlock } from './index'
 
-const ContainerBlockRenderer: BlockRenderer<ContainerBlock> = ({ block }) => {
+const ContainerBlockRenderer: BlockRenderer<ContainerBlock> = ({ block, pageContext, parentContext }) => {
     return (
         <>
             {block.children.map(id => (
-                <ChildBlockRenderer key={id} id={id} />
+                <ChildBlockRenderer
+                    key={id}
+                    id={id}
+                    parent={block}
+                    pageContext={pageContext}
+                    parentContext={parentContext}
+                />
             ))}
         </>
     )

@@ -6,7 +6,8 @@ import ApiCallBlockConfigurator from './ApiCallBlockConfigurator'
 export type ApiCallBlockSettings = {
     method: string
     url: string
-    body: any
+    body?: any
+    contextKey: string
 }
 
 export type ApiCallBlock = Block<'apiCall', ApiCallBlockSettings>
@@ -16,7 +17,9 @@ const apiCallModule: BlockModule<ApiCallBlock> = {
     defaults: {
         label: 'API call',
         settings: {
-            method: 'GET'
+            method: 'GET',
+            url: '',
+            contextKey: 'apiData'
         }
     },
     icon: ExternalLink as any,

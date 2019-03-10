@@ -1,15 +1,14 @@
 import React from 'react'
 import { BlockRenderer } from '@compoz/core'
 import { ChildBlockRenderer, augmentParentContext } from '@compoz/ui'
-import { JsonBlock } from './index'
+import { ApiCallBlock } from './index'
 
-const JsonBlockRenderer: BlockRenderer<JsonBlock> = ({ block, pageContext, parentContext }) => {
-    if (block.children.length === 0) return null
-
-    const newParentContext = augmentParentContext(parentContext, block.settings.contextKey, block.settings.data)
-
+const ApiCallBlockRenderer: BlockRenderer<ApiCallBlock> = ({ block, pageContext, parentContext }) => {
+    const newParentContext = augmentParentContext(parentContext, block.settings.contextKey, { apiRes: 'yay' })
+    
     return (
         <>
+            <div>{block.settings.method}</div>
             {block.children.map(id => (
                 <ChildBlockRenderer
                     key={id}
@@ -23,4 +22,4 @@ const JsonBlockRenderer: BlockRenderer<JsonBlock> = ({ block, pageContext, paren
     )
 }
 
-export default JsonBlockRenderer
+export default ApiCallBlockRenderer

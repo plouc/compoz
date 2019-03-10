@@ -53,7 +53,6 @@ const Container = styled.div`
     grid-template-rows: auto auto 1fr;
     height: 100%;
     overflow: hidden;
-    background: red;
 `
 
 const PreviewContainer = styled.div`

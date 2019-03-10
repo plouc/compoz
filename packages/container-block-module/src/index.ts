@@ -18,7 +18,7 @@ const containerModule: BlockModule<ContainerBlock> = {
     renderer: ContainerBlockRenderer,
     configurator: ContainerBlockConfigurator,
     shouldAddChild: () => true,
-    shouldBeAdded: () => true
+    shouldBeAdded: () => true,
 }
 
 export default containerModule

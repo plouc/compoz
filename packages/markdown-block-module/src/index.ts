@@ -21,7 +21,7 @@ const textModule: BlockModule<MarkdownBlock> = {
     renderer: MarkdownBlockRenderer,
     configurator: MarkdownBlockConfigurator,
     shouldAddChild: () => false,
-    shouldBeAdded: () => true
+    shouldBeAdded: () => true,
 }
 
 export default textModule

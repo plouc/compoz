@@ -12,7 +12,12 @@ export interface Block<T, Settings = any> {
     settings: Settings
 }
 
-export type BlockRenderer<B extends Block<any>> = FunctionComponent<{ block: B; parent?: B }>
+export type BlockRenderer<B extends Block<any>> = FunctionComponent<{
+    block: B
+    parent?: B
+    parentContext: any
+    pageContext: any
+}>
 export type BlockConfigurator<B extends Block<any>> = FunctionComponent<{
     block: Omit<B, 'id'> & { id?: string }
     mode: 'create' | 'edit'

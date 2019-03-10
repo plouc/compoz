@@ -1,12 +1,15 @@
 {
-  "name": "@compoz/markdown-block-module",
+  "name": "@compoz/bar-chart-block-module",
   "version": "0.1.1",
-  "repository": "https://github.com/plouc/compoz/tree/master/packages/markdown-block-module",
+  "repository": "https://github.com/plouc/compoz/tree/master/packages/bar-chart-block-module",
   "author": "Raphaël Benitte <benitteraphael@gmail.com>",
   "license": "MIT",
   "keywords": [
     "compoz",
-    "compoz-block-module"
+    "compoz-block-module",
+    "nivo",
+    "charts",
+    "bar-chart"
   ],
   "main": "build/index.js",
   "typings": "build/index.d.ts",
@@ -18,7 +21,7 @@
   ],
   "dependencies": {
     "react-feather": "1.1.6",
-    "react-markdown": "^4.0.6"
+    "@nivo/bar": "^0.52.1"
   },
   "devDependencies": {
     "typescript": "^3.3.3333"

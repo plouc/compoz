@@ -6,6 +6,7 @@ import JsonBlockConfigurator from './JsonBlockConfigurator'
 export type JsonBlock = Block<
     'json',
     {
+        contextKey: string
         data: any
     }
 >
@@ -19,6 +20,7 @@ const jsonModule: BlockModule<JsonBlock> = {
     defaults: {
         label: 'Json Data',
         settings: {
+            contextKey: 'jsonData',
             data: {}
         }
     },
@@ -26,7 +28,7 @@ const jsonModule: BlockModule<JsonBlock> = {
     renderer: JsonBlockRenderer,
     configurator: JsonBlockConfigurator,
     shouldAddChild: () => true,
-    shouldBeAdded: () => true
+    shouldBeAdded: () => true,
 }
 
 export default jsonModule

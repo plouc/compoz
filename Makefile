@@ -15,14 +15,25 @@ init: ## init respository, install deps, build packages
 	@${MAKE} pkgs-install
 	@${MAKE} pkgs-build
 	@${MAKE} app-install
-	@${MAKE} pkgs-link
+#	@${MAKE} pkgs-link
 
 pkgs-install: ## install all packages dependencies
 	@yarn install
 	@yarn lerna bootstrap
 
 pkgs-build: ## build all packages
-	@yarn lerna --loglevel warn run build
+	# order matters!
+	@yarn lerna --loglevel warn run build --scope @compoz/core
+	@yarn lerna --loglevel warn run build --scope @compoz/ui
+	@yarn lerna --loglevel warn run build --scope @compoz/bar-chart-block-module
+	@yarn lerna --loglevel warn run build --scope @compoz/container-block-module
+	@yarn lerna --loglevel warn run build --scope @compoz/json-block-module
+	@yarn lerna --loglevel warn run build --scope @compoz/markdown-block-module
+	@yarn lerna --loglevel warn run build --scope @compoz/pie-chart-block-module
+	@yarn lerna --loglevel warn run build --scope @compoz/proxy-block-module
+
+pkg-dev-%: ## watch a package for development
+	@yarn lerna run dev --scope @compoz/${*}
 
 pkgs-dev: ## watch all packages for development
 	@yarn lerna run dev --parallel

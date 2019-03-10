@@ -19,13 +19,14 @@
     "react-feather": "^1.1.6"
   },
   "peerDependencies": {
-    "react": "^16.8.4"
+    "react": "^16.8.4",
+    "@types/react": "^16.8.7"
   },
   "devDependencies": {
     "typescript": "^3.3.3333"
   },
   "scripts": {
-    "dev": "rm -rf build && tsc --watch --pretty --preserveWatchOutput",
+    "dev": "tsc --watch --pretty --preserveWatchOutput",
     "build": "rm -rf build && tsc --pretty"
   }
 }

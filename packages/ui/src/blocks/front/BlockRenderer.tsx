@@ -10,7 +10,7 @@ type Props = {
 const BlockAdmin: FunctionComponent<Props> = ({ block, parent }) => {
     const render = useModuleRenderer(block.type)
 
-    return <>{render({ block, parent })}</>
+    return <>{render({ block, parent, pageContext: {}, parentContext: {} })}</>
 }
 
 export default BlockAdmin
