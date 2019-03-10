@@ -1,6 +1,6 @@
 {
   "name": "@compoz/bar-chart-block-module",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "repository": "https://github.com/plouc/compoz/tree/master/packages/bar-chart-block-module",
   "author": "Raphaël Benitte <benitteraphael@gmail.com>",
   "license": "MIT",
@@ -20,8 +20,8 @@
     "build"
   ],
   "dependencies": {
-    "react-feather": "1.1.6",
-    "@nivo/bar": "^0.52.1"
+    "@nivo/bar": "^0.52.1",
+    "react-feather": "1.1.6"
   },
   "devDependencies": {
     "typescript": "^3.3.3333"

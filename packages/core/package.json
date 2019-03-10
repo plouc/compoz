@@ -1,6 +1,6 @@
 {
   "name": "@compoz/core",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "repository": "https://github.com/plouc/compoz/tree/master/packages/core",
   "author": "Raphaël Benitte <benitteraphael@gmail.com>",
   "license": "MIT",
@@ -19,8 +19,8 @@
     "react-feather": "^1.1.6"
   },
   "peerDependencies": {
-    "react": "^16.8.4",
-    "@types/react": "^16.8.7"
+    "@types/react": "^16.8.7",
+    "react": "^16.8.4"
   },
   "devDependencies": {
     "typescript": "^3.3.3333"
