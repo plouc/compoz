@@ -1,15 +1,52 @@
-import React from 'react'
+import React, { useMemo, useEffect, useState } from 'react'
 import { BlockRenderer } from '@compoz/core'
-import { ChildBlockRenderer, augmentParentContext } from '@compoz/ui'
+import { ChildBlockRenderer } from '@compoz/ui'
 import { ApiCallBlock } from './index'
 
 const ApiCallBlockRenderer: BlockRenderer<ApiCallBlock> = ({ block, pageContext, parentContext }) => {
-    const newParentContext = augmentParentContext(parentContext, block.settings.contextKey, { apiRes: 'yay' })
-    
+    const [apiResponse, setApiResponse] = useState<{
+        isFetching: boolean
+        error: null | Error
+        data: any
+    }>({
+        isFetching: true,
+        error: null,
+        data: {}
+    })
+    const callData = useEffect(
+        (): any => {
+            fetch(block.settings.url, {
+                method: block.settings.method,
+            })
+                .then(res => res.json())
+                .then(data => {
+                    setApiResponse({
+                        isFetching: false,
+                        error: null,
+                        data
+                    })
+                })
+        
+            return () => {}
+        },
+        [block.settings]
+    )
+    const newParentContext = useMemo(
+        () => {
+            return {
+                ...parentContext,
+                [block.settings.contextKey]: apiResponse.data
+            }
+        },
+        [parentContext, block.settings.contextKey, apiResponse.data]
+    )
+
+    console.log(newParentContext)
+
     return (
         <>
-            <div>{block.settings.method}</div>
-            {block.children.map(id => (
+            {apiResponse.isFetching && <div>…fetching…</div>}
+            {!apiResponse.isFetching && block.children.map(id => (
                 <ChildBlockRenderer
                     key={id}
                     id={id}

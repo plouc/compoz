@@ -4,6 +4,7 @@ import MarkdownBlockRenderer from './MarkdownBlockRenderer'
 import MarkdownBlockConfigurator from './MarkdownBlockConfigurator'
 
 export type MarkdownBlockSettings = {
+    enableTemplating: boolean
     content: string
 }
 
@@ -14,6 +15,7 @@ const textModule: BlockModule<MarkdownBlock> = {
     defaults: {
         label: 'Markdown',
         settings: {
+            enableTemplating: false,
             content: '# Markdown Block content'
         }
     },

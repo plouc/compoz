@@ -4,7 +4,7 @@ export const GlobalStyle = createGlobalStyle`
     body {
         margin: 0;
         padding: 0;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+        font-family: ${props => props.theme.baseFontFamily};
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         color: ${props => props.theme.textColor};
@@ -21,8 +21,8 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
 
-    code {
-        font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    code, pre {
+        font-family: ${props => props.theme.monospacedFontFamily};
     }
 
     a {

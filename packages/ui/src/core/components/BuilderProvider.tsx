@@ -3,6 +3,8 @@ import { Block, BlockModule, uuid } from '@compoz/core'
 import { modulesRegistryContext } from '../../modulesRegistry'
 import { BuilderState, builderStateContext, builderDispatchContext, builderReducer } from '../store'
 import surveyHomepage from '../../samples/survey/homepage'
+import userProfilePage from '../../samples/github/userProfilePage'
+import repoPage from '../../samples/github/repoPage'
 
 const aboutpage = {
     id: uuid(),
@@ -14,6 +16,14 @@ const defaultInitialState: BuilderState = {
         [surveyHomepage.page.id]: {
             page: surveyHomepage.page,
             blocks: surveyHomepage.blocks
+        },
+        [userProfilePage.page.id]: {
+            page: userProfilePage.page,
+            blocks: userProfilePage.blocks
+        },
+        [repoPage.page.id]: {
+            page: repoPage.page,
+            blocks: repoPage.blocks
         },
         [aboutpage.id]: {
             page: aboutpage,

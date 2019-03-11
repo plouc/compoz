@@ -39,6 +39,7 @@ const blocks = [
         tags: [],
         children: [],
         settings: {
+            enableTemplating: false,
             content: `## Header`
         }
     },
@@ -79,6 +80,7 @@ const blocks = [
         tags: [],
         children: [],
         settings: {
+            enableTemplating: false,
             content: `### Introduction
     
 Lorem ipsum **dolor sit amet**, consectetur adipiscing elit,
@@ -108,6 +110,7 @@ laboris nisi ut aliquip ex ea commodo consequat.`
         tags: [],
         children: [],
         settings: {
+            enableTemplating: false,
             content: `## Sidebar`
         }
     },
@@ -119,6 +122,7 @@ laboris nisi ut aliquip ex ea commodo consequat.`
         tags: [],
         children: [],
         settings: {
+            enableTemplating: false,
             content: `#### Address
 
 927 Pennington Court
@@ -148,6 +152,7 @@ Charlottesville, VA 22901
         tags: [],
         children: [],
         settings: {
+            enableTemplating: false,
             content: `## Content`
         }
     },
@@ -202,6 +207,7 @@ Charlottesville, VA 22901
         tags: [],
         children: [],
         settings: {
+            enableTemplating: false,
             content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fermentum sit amet tellus nec blandit. Donec non mauris porta, fringilla sapien in, molestie tellus. Etiam condimentum vestibulum ligula, sit amet finibus felis. Integer finibus nunc arcu, eu suscipit justo malesuada sit amet. Aliquam erat volutpat. In hac habitasse platea dictumst. Fusce tincidunt nulla ac ligula tincidunt, vitae aliquam ipsum dignissim. Donec odio urna, porttitor ut tincidunt ac, facilisis ut nunc. Donec eget est ligula. Integer ac laoreet est. Pellentesque ante nisi, facilisis vitae quam nec, aliquam fermentum diam. Cras eleifend nibh enim, sit amet hendrerit libero bibendum facilisis.
 
 Proin bibendum, libero id scelerisque pharetra, diam magna sollicitudin lacus, id dignissim erat mauris vel leo. Nunc metus arcu, sagittis vel velit ut, laoreet consequat urna. Quisque imperdiet pulvinar sem, id suscipit ligula efficitur a. Donec mollis scelerisque ex, at vulputate enim gravida malesuada. Donec consequat iaculis consectetur. Duis justo enim, dignissim vel sodales at, dapibus ut dui. Donec tincidunt sed arcu in consequat. Sed vel maximus nisi. Fusce nec molestie justo. Aenean feugiat pellentesque purus a porta. Aenean tempus justo a dui feugiat, nec accumsan dolor condimentum. Vivamus semper augue porttitor risus venenatis auctor. Pellentesque iaculis porta posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -231,6 +237,7 @@ Vivamus fermentum mauris et nibh vestibulum volutpat. Nunc at porta neque. Vivam
         tags: [],
         children: [],
         settings: {
+            enableTemplating: false,
             content: `## Footer`
         }
     },

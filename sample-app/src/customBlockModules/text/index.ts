@@ -4,6 +4,7 @@ import TextBlockRenderer from './TextBlockRenderer'
 import TextBlockConfigurator from './TextBlockConfigurator'
 
 export type TextBlockSettings = {
+    enableTemplating: boolean
     text: string
 }
 
@@ -14,6 +15,7 @@ const textModule: BlockModule<TextBlock> = {
     defaults: {
         label: 'Text',
         settings: {
+            enableTemplating: false,
             text: 'Text content.'
         }
     },
