@@ -1,5 +1,6 @@
 import React from 'react'
 import { Builder } from '@compoz/ui'
+import indexedDbStorage from '@compoz/indexeddb-storage'
 import apiCall, { ApiCallBlock } from '@compoz/api-call-block-module'
 import container, { ContainerBlock } from '@compoz/container-block-module'
 import markdown, { MarkdownBlock } from '@compoz/markdown-block-module'
@@ -20,8 +21,11 @@ const BoundBuilder = Builder<{
     barChart: BarChartBlock
 }>()
 
+const storage = indexedDbStorage()
+
 const App = () => (
     <BoundBuilder
+        storage={storage}
         modules={{
             container,
             markdown,

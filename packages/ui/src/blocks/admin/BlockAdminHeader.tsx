@@ -8,7 +8,7 @@ const Header = styled.header<{ isHover: boolean }>`
     display: grid;
     grid-template-columns: 36px auto 120px;
     align-items: center;
-    padding: ${props => props.theme.spacing * 3}px ${props => props.theme.spacing * 2}px;
+    padding: ${props => props.theme.spacing * 2}px ${props => props.theme.spacing * 2}px;
 `
 
 const Title = styled.div<{ isHover: boolean }>`

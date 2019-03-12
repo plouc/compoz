@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import styled from '../../theming'
-import { usePageState } from '../store'
+import { usePage } from '../store'
 
 const Container = styled.div`
     border-bottom: 1px solid ${props => props.theme.borderColor};
@@ -16,11 +16,11 @@ const Title = styled.h1`
 type Props = {}
 
 const PageAdminHeader: FunctionComponent<Props> = () => {
-    const page = usePageState('page')
+    const page = usePage()
 
     return (
         <Container>
-            <Title>{page.label}</Title>
+            {page !== null && <Title>{page.label}</Title>}
         </Container>
     )
 }

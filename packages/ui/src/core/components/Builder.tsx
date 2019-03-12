@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react'
-import { Block, BlockModule } from '@compoz/core'
-import styled, { ThemeProvider, defaultTheme, GlobalStyle } from '../../theming'
+import { Block, BlockModule, Storage } from '@compoz/core'
+import { ThemeProvider, defaultTheme, GlobalStyle } from '../../theming'
 import BuilderProvider from './BuilderProvider'
-import { PagesNav, PageAdmin } from '../../pages'
+import BuilderView from './BuilderView'
 
 type Modules<BlocksMap> = {
     [ModuleName in keyof BlocksMap]: BlocksMap[ModuleName] extends Block<ModuleName, infer S>
@@ -19,19 +19,14 @@ const Builder = function<
 >() {
     const BoundBuilder: FunctionComponent<{
         modules: Modules<BlocksMap>
-    }> = ({ modules }) => {
+        storage: Storage
+    }> = ({ modules, storage }) => {
         return (
-            <BuilderProvider modules={modules}>
+            <BuilderProvider modules={modules} storage={storage}>
                 <ThemeProvider theme={defaultTheme}>
                     <>
                         <GlobalStyle />
-                        <Container>
-                            <Sidebar>
-                                <Logo>compoz</Logo>
-                                <PagesNav />
-                            </Sidebar>
-                            <PageAdmin />
-                        </Container>
+                        <BuilderView />
                     </>
                 </ThemeProvider>
             </BuilderProvider>
@@ -42,23 +37,3 @@ const Builder = function<
 }
 
 export default Builder
-
-const Container = styled.div`
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: 260px auto;
-    grid-template-rows: minmax(0, 1fr);
-    overflow: hidden;
-`
-
-const Sidebar = styled.div`
-    border-right: 1px solid ${props => props.theme.borderColor};
-`
-
-const Logo = styled.div`
-    font-weight: 900;
-    font-size: 16px;
-    text-transform: uppercase;
-    padding: ${props => props.theme.spacing}px ${props => props.theme.spacing * 2}px;
-`

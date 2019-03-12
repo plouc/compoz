@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import { Block, getNodeById } from '@compoz/core'
-import { usePageState } from '../../pages'
+import { usePageBlocks } from '../../pages'
 import { useModuleRenderer } from '../../modulesRegistry'
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
 }
 
 const ChildBlockRenderer: FunctionComponent<Props> = ({ id, parent, pageContext, parentContext }) => {
-    const blocks = usePageState('blocks')
+    const blocks = usePageBlocks()
     const block = getNodeById(blocks, id)
     const render = useModuleRenderer(block.type)
 

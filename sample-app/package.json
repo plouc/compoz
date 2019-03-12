@@ -7,6 +7,7 @@
     "@compoz/bar-chart-block-module": "*",
     "@compoz/container-block-module": "*",
     "@compoz/core": "*",
+    "@compoz/indexeddb-storage": "*",
     "@compoz/json-block-module": "*",
     "@compoz/markdown-block-module": "*",
     "@compoz/pie-chart-block-module": "*",

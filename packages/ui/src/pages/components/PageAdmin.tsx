@@ -2,9 +2,9 @@ import React, { FunctionComponent, useState } from 'react'
 import { Edit2, Eye, Code, Settings } from 'react-feather'
 import { getNodeByPath } from '@compoz/core'
 import styled from '../../theming'
-import { TabsNav } from '../../core'
+import { TabsNav, useBuilderState, useDispatchBinding } from '../../core'
 import { BlockRenderer, BlockAdmin, RawBlockData } from '../../blocks'
-import { usePageState } from '../store'
+import { usePageBlocks, fetchPageBlocksIfNeeded } from '../store'
 import PageAdminHeader from './PageAdminHeader'
 
 type Props = {}
@@ -17,9 +17,13 @@ const tabsItems = [
 ]
 
 const PageAdmin: FunctionComponent<Props> = () => {
+    const builderState = useBuilderState()
     const [mode, setMode] = useState('admin')
-    const blocks = usePageState('blocks')
-    const root = getNodeByPath(blocks, '0')
+    const blocks = usePageBlocks()
+    const root = (blocks.length > 0) ? getNodeByPath(blocks, '0') : null
+
+    const fetchPageBlocks = useDispatchBinding(fetchPageBlocksIfNeeded)
+    fetchPageBlocks(builderState.currentPageId)
 
     return (
         <Container>
@@ -29,19 +33,21 @@ const PageAdmin: FunctionComponent<Props> = () => {
                 currentId={mode}
                 onChange={setMode}
             />
-            <ContentWrapper>
-                {mode === 'admin' && (
-                    <BlocksWrapper>
-                        <BlockAdmin block={root} depth={0} />
-                    </BlocksWrapper>
-                )}
-                {mode === 'preview' && (
-                    <PreviewContainer>
-                        <BlockRenderer block={root} />
-                    </PreviewContainer>
-                )}
-                {mode === 'raw' && <RawBlockData block={root} />}
-            </ContentWrapper>
+            {root !== null && (
+                <ContentWrapper>
+                    {mode === 'admin' && (
+                        <BlocksWrapper>
+                            <BlockAdmin block={root} depth={0} />
+                        </BlocksWrapper>
+                    )}
+                    {mode === 'preview' && (
+                        <PreviewContainer>
+                            <BlockRenderer block={root} />
+                        </PreviewContainer>
+                    )}
+                    {mode === 'raw' && <RawBlockData block={root} />}
+                </ContentWrapper>
+            )}
         </Container>
     )
 }

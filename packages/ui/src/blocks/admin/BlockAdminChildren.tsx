@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useCallback, useMemo, Fragment, useState } from 'react'
 import { Omit, getNodesById, Block, BlockModulesMap } from '@compoz/core'
-import { usePageState } from '../../pages'
+import { usePageBlocks } from '../../pages'
 import { useModulesRegistry } from '../../modulesRegistry'
 import AddBlockButton from './AddBlockButton'
 import BlockAdmin from './BlockAdmin'
@@ -13,7 +13,7 @@ type Props = {
 }
 
 const BlockChildren: FunctionComponent<Props> = ({ block, depth, shouldAddChild }) => {
-    const blocks = usePageState('blocks')
+    const blocks = usePageBlocks()
     const registry = useModulesRegistry()
     const module = registry[block.type]
     const allowedChildModules: BlockModulesMap = useMemo(() => {

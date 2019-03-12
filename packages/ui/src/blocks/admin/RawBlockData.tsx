@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { Block, nodeHierarchy } from '@compoz/core'
 import styled from '../../theming'
-import { usePageState } from '../../pages'
+import { usePageBlocks } from '../../pages'
 
 const Container = styled.pre`
     font-size: 12px;
@@ -17,7 +17,7 @@ type Props = {
 }
 
 const RawBlockData: FunctionComponent<Props> = ({ block }) => {
-    const blocks = usePageState('blocks')
+    const blocks = usePageBlocks()
 
     return <Container>{JSON.stringify(nodeHierarchy(blocks, block), null, '  ')}</Container>
 }

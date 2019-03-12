@@ -1,61 +1,49 @@
 import React, { FunctionComponent, useReducer } from 'react'
-import { Block, BlockModule, uuid } from '@compoz/core'
+import { Block, BlockModule, Storage } from '@compoz/core'
 import { modulesRegistryContext } from '../../modulesRegistry'
-import { BuilderState, builderStateContext, builderDispatchContext, builderReducer } from '../store'
-import surveyHomepage from '../../samples/survey/homepage'
-import userProfilePage from '../../samples/github/userProfilePage'
-import repoPage from '../../samples/github/repoPage'
+import {
+    BuilderState,
+    builderStateContext,
+    builderDispatchContext,
+    builderReducer,
+    builderStorageContext,
+    BuilderAction
+} from '../store'
 
-const aboutpage = {
-    id: uuid(),
-    label: 'About'
-}
 const defaultInitialState: BuilderState = {
-    currentPageId: surveyHomepage.page.id,
-    byPage: {
-        [surveyHomepage.page.id]: {
-            page: surveyHomepage.page,
-            blocks: surveyHomepage.blocks
-        },
-        [userProfilePage.page.id]: {
-            page: userProfilePage.page,
-            blocks: userProfilePage.blocks
-        },
-        [repoPage.page.id]: {
-            page: repoPage.page,
-            blocks: repoPage.blocks
-        },
-        [aboutpage.id]: {
-            page: aboutpage,
-            blocks: [
-                {
-                    type: 'container',
-                    id: uuid(),
-                    path: '0',
-                    label: 'Root',
-                    tags: [],
-                    children: [],
-                    settings: {}
-                }
-            ]
-        }
-    }
+    currentPageId: null,
+    pageCreation: {
+        isCreating: false,
+    },
+    pagesIds: {
+        items: [],
+        isFetching: false,
+        isStale: true
+    },
+    pageById: {},
+    blockCreation: {
+        isCreating: false,
+    },
+    blockById: {},
 }
 
 const BuilderProvider: FunctionComponent<{
     modules: {
         [key: string]: BlockModule<Block<any>>
     }
+    storage: Storage
     initialState?: BuilderState
-}> = ({ children, modules, initialState = defaultInitialState }) => {
+}> = ({ children, modules, storage, initialState = defaultInitialState }) => {
     const [state, dispatch] = useReducer(builderReducer, initialState)
 
     return (
         <modulesRegistryContext.Provider value={modules}>
             <builderDispatchContext.Provider value={dispatch}>
-                <builderStateContext.Provider value={state}>
-                    {children}
-                </builderStateContext.Provider>
+                <builderStorageContext.Provider value={storage}>
+                    <builderStateContext.Provider value={state}>
+                        {children}
+                    </builderStateContext.Provider>
+                </builderStorageContext.Provider>
             </builderDispatchContext.Provider>
         </modulesRegistryContext.Provider>
     )

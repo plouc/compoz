@@ -1,6 +1,12 @@
-import { Page, Block } from '@compoz/core'
+import { Page } from '@compoz/core'
 
 export interface PageState {
-    page: Page
-    blocks: Block<any>[]
+    item: Page
+    isFetching: boolean
+    isStale: boolean
+    blocks: {
+        items: string[]
+        isFetching: boolean
+        isStale: boolean
+    }
 }

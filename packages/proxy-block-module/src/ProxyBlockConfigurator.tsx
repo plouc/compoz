@@ -1,11 +1,11 @@
 import React from 'react'
 import { Field, FieldProps } from 'formik'
 import { BlockConfigurator } from '@compoz/core'
-import { usePageState } from '@compoz/ui'
+import { usePageBlocks } from '@compoz/ui'
 import { ProxyBlock } from './index'
 
 const ProxyBlockConfigurator: BlockConfigurator<ProxyBlock> = ({ block }) => {
-    const blocks = usePageState('blocks')
+    const blocks = usePageBlocks()
     const allowedBlocks = blocks.filter(b => {
         return b.id !== block.id && b.path !== '0' && !['container', 'proxy'].includes(b.type)
     })
