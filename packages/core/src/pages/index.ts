@@ -8,4 +8,8 @@ export interface Page {
      * Page display name.
      */
     label: string
+    /**
+     * Page root block identifier.
+     */
+    rootBlockId: string
 }

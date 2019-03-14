@@ -17,24 +17,24 @@ export const openDatabase = (
     })
 }
 
-export const addItemToStore = async (db: IDBDatabase, name: string, item: any): Promise<void> => {
-    const trx = db.transaction(name, 'readwrite')
-    const store = trx.objectStore(name)
+export const addItem = async (db: IDBDatabase, storeName: string, item: any): Promise<void> => {
+    const trx = db.transaction(storeName, 'readwrite')
+    const store = trx.objectStore(storeName)
 
     return new Promise((resolve, reject) => {
         trx.oncomplete = () => resolve()
         trx.onerror = (event) => {
             const error = (event.target as any).error
-            console.error(`an error occurred while adding item to "${name}" store\n> ${error.message}`, item)
+            console.error(`an error occurred while adding item to "${storeName}" store\n> ${error.message}`, item)
             reject(new Error(error.message))
         }
         store.add(item)
     })
 }
 
-export const listStoreItems = async (db: IDBDatabase, name: string): Promise<any[]> => {
-    const trx = db.transaction(name, 'readonly')
-    const store = trx.objectStore(name)
+export const getItems = async (db: IDBDatabase, storeName: string): Promise<any[]> => {
+    const trx = db.transaction(storeName, 'readonly')
+    const store = trx.objectStore(storeName)
 
     let items: any[] = []
 
@@ -54,9 +54,9 @@ export const listStoreItems = async (db: IDBDatabase, name: string): Promise<any
     })
 }
 
-export const getStoreItem = async (db: IDBDatabase, name: string, uid: string): Promise<any[]> => {
-    const trx = db.transaction(name, 'readonly')
-    const store = trx.objectStore(name)
+export const getItem = async (db: IDBDatabase, storeName: string, uid: string): Promise<any> => {
+    const trx = db.transaction(storeName, 'readonly')
+    const store = trx.objectStore(storeName)
 
     return new Promise(async (resolve, reject) => {
         const req = await store.get(uid)
@@ -66,9 +66,24 @@ export const getStoreItem = async (db: IDBDatabase, name: string, uid: string): 
     })
 }
 
-export const getItemsByRange = async (db: IDBDatabase, name: string, idxName: string, range: IDBKeyRange): Promise<any[]> => {
-    const trx = db.transaction(name, 'readonly')
-    const store = trx.objectStore(name)
+export const updateItem = async (db: IDBDatabase, storeName: string, item: any) => {
+    const trx = db.transaction(storeName, 'readwrite')
+    const store = trx.objectStore(storeName)
+
+    return new Promise((resolve, reject) => {
+        trx.oncomplete = () => resolve()
+        trx.onerror = (event) => {
+            const error = (event.target as any).error
+            console.error(`an error occurred while updating item to "${storeName}" store\n> ${error.message}`, item)
+            reject(new Error(error.message))
+        }
+        store.put(item)
+    })
+}
+
+export const getItemsByRange = async (db: IDBDatabase, storeName: string, idxName: string, range: IDBKeyRange): Promise<any[]> => {
+    const trx = db.transaction(storeName, 'readonly')
+    const store = trx.objectStore(storeName)
     const idx = store.index(idxName)
 
     let items: any[] = []

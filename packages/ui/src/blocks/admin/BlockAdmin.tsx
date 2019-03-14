@@ -13,13 +13,13 @@ type Props = {
 
 const BlockAdmin: FunctionComponent<Props> = ({ block, depth = 0 }) => {
     const dispatch = useBuilderDispatch()
-    const removeBlock = useCallback(() => dispatch({ type: 'removeBlock', path: block.path }), [
+    const removeBlock = useCallback(() => dispatch({ type: 'removeBlock', id: block.id }), [
         dispatch,
-        block.path
+        block.id
     ])
     const [isHover, setIsHover] = useState(false)
 
-    const isRoot = block.path === '0'
+    const isRoot = false
 
     return (
         <>

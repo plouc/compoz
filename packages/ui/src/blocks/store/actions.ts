@@ -1,5 +1,5 @@
 import { Dispatch } from 'react'
-import { Omit, Block, Storage } from '@compoz/core'
+import { Omit, Block, Storage, Page } from '@compoz/core'
 import { BuilderAction, BuilderState } from '../../core'
 import { invalidatePageBlocks } from '../../pages'
 
@@ -42,11 +42,11 @@ export const createBlock = (
         position,
         parentId
     })
-    const createdBlock = await storage.createBlock({
-        ...block,
-        path: '0',
-        children: [],
-    }, pageId)
+    const createdBlock = await storage.createBlock(block, {
+        pageId,
+        parentId,
+        position,
+    })
     dispatch({
         type: 'createBlockSuccess',
         block: createdBlock,

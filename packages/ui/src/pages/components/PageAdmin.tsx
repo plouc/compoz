@@ -1,10 +1,10 @@
 import React, { FunctionComponent, useState } from 'react'
 import { Edit2, Eye, Code, Settings } from 'react-feather'
-import { getNodeByPath } from '@compoz/core'
+import { getNodeById } from '@compoz/core'
 import styled from '../../theming'
 import { TabsNav, useBuilderState, useDispatchBinding } from '../../core'
 import { BlockRenderer, BlockAdmin, RawBlockData } from '../../blocks'
-import { usePageBlocks, fetchPageBlocksIfNeeded } from '../store'
+import { usePage, usePageBlocks, fetchPageBlocksIfNeeded } from '../store'
 import PageAdminHeader from './PageAdminHeader'
 
 type Props = {}
@@ -19,10 +19,15 @@ const tabsItems = [
 const PageAdmin: FunctionComponent<Props> = () => {
     const builderState = useBuilderState()
     const [mode, setMode] = useState('admin')
+    const page = usePage()
     const blocks = usePageBlocks()
-    const root = (blocks.length > 0) ? getNodeByPath(blocks, '0') : null
-
     const fetchPageBlocks = useDispatchBinding(fetchPageBlocksIfNeeded)
+
+    if (page === null) {
+        return null
+    }
+
+    const root = (blocks.length > 0) ? getNodeById(blocks, page.rootBlockId) : null
     fetchPageBlocks(builderState.currentPageId)
 
     return (

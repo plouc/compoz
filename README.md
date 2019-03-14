@@ -20,6 +20,10 @@ interface Page {
      * Page display name.
      */
     label: string
+    /**
+     * Page root block identifier.
+     */
+    rootBlockId: string
 }
 ```
 
@@ -40,7 +44,6 @@ interface Block<T, Settings = any> {
      * by the Storage.
      */
     id: string
-    path: string
     /**
      * Block display name.
      */
@@ -58,6 +61,7 @@ interface Block<T, Settings = any> {
      * Child blocks, not all block types support children.
      * It depends on the module the block depends on.
      * @see BlockModule.shouldAddChild
+     * @see BlockModule.shouldBeAdded
      */
     children: string[]
 }

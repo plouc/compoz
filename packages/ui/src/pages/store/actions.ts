@@ -113,7 +113,7 @@ export const invalidatePageBlocks = (
 
 export interface CreatePageRequestAction {
     type: 'createPageRequest'
-    page: Omit<Page, 'id'>
+    page: Omit<Page, 'id' | 'rootBlockId'>
 }
 
 export interface CreatePageSuccessAction {
@@ -125,24 +125,20 @@ export const createPage = (
     dispatch: Dispatch<BuilderAction>,
     state: BuilderState,
     storage: Storage
-) => async (page: Omit<Page, 'id'>) => {
+) => async (page: Omit<Page, 'id' | 'rootBlockId'>) => {
     dispatch({
         type: 'createPageRequest',
         page
     })
-    const createdPage = await storage.createPage(page)
-    dispatch({
-        type: 'createPageSuccess',
-        page: createdPage
-    })
-    await createBlock(dispatch, state, storage)({
+    const createdPage = await storage.createPage(page, {
         type: 'container',
         label: 'Root',
         tags: [],
         settings: {}
-    }, {
-        pageId: createdPage.id,
-        position: 0
+    })
+    dispatch({
+        type: 'createPageSuccess',
+        page: createdPage
     })
     setCurrentPage(dispatch, state, storage)(createdPage.id)
 }

@@ -1,33 +1,12 @@
 import React, { FunctionComponent, useCallback } from 'react'
 import { Field, FieldProps } from 'formik'
 import { Omit, Block } from '@compoz/core'
-import { useBuilderDispatch } from '../../core'
+import { useDispatchBinding } from '../../core'
+import { usePage } from '../../pages'
 import styled from '../../theming'
+import { createBlock } from '../store'
 import BlockIcon from './BlockIcon'
 import BlockAdminForm from './BlockAdminForm'
-
-const Container = styled.div`
-    background: #f6f6f6;
-`
-
-const Header = styled.header`
-    padding: ${props => props.theme.spacing}px ${props => props.theme.spacing * 2}px;
-    display: grid;
-    grid-template-columns: 36px auto;
-    align-items: center;
-`
-
-const LabelInput = styled.input`
-    font-size: 14px;
-    font-weight: 600;
-    padding: ${props => props.theme.spacing * 0.6}px ${props => props.theme.spacing}px;
-    border: 1px solid ${props => props.theme.borderColor};
-
-    &:focus {
-        outline: 0;
-        border: 1px solid ${props => props.theme.accentColor};
-    }
-`
 
 type Props = {
     block: Omit<Block<any>, 'id'>
@@ -38,18 +17,19 @@ type Props = {
 }
 
 const CreateBlock: FunctionComponent<Props> = ({ block, parentId, position, onSave }) => {
-    const dispatch = useBuilderDispatch()
+    const create = useDispatchBinding(createBlock)
+    const page = usePage()
     const save = useCallback(
         (newBlock: Omit<Block<any>, 'id'>) => {
-            dispatch({
-                type: 'addBlock',
+            if (page === null) return
+            create(newBlock, {
+                pageId: page.id,
                 parentId,
                 position,
-                block: newBlock
             })
             onSave !== undefined && onSave(newBlock)
         },
-        [dispatch, parentId, position, onSave]
+        [create, page, parentId, position, onSave]
     )
 
     return (
@@ -73,3 +53,27 @@ const CreateBlock: FunctionComponent<Props> = ({ block, parentId, position, onSa
 }
 
 export default CreateBlock
+
+
+const Container = styled.div`
+    background: #f6f6f6;
+`
+
+const Header = styled.header`
+    padding: ${props => props.theme.spacing}px ${props => props.theme.spacing * 2}px;
+    display: grid;
+    grid-template-columns: 36px auto;
+    align-items: center;
+`
+
+const LabelInput = styled.input`
+    font-size: 14px;
+    font-weight: 600;
+    padding: ${props => props.theme.spacing * 0.6}px ${props => props.theme.spacing}px;
+    border: 1px solid ${props => props.theme.borderColor};
+
+    &:focus {
+        outline: 0;
+        border: 1px solid ${props => props.theme.accentColor};
+    }
+`

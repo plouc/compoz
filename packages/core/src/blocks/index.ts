@@ -16,7 +16,6 @@ export interface Block<T, Settings = any> {
      * by the Storage.
      */
     id: string
-    path: string
     /**
      * Block display name.
      */
