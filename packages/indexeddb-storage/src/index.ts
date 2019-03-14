@@ -75,7 +75,7 @@ export default (): Storage => {
     const createBlock = async (block: Omit<Block<any>, 'id' | 'children'>, {
         pageId,
         parentId,
-        position
+        position = 0
     }: {
         pageId?: string
         parentId?: string
@@ -94,8 +94,12 @@ export default (): Storage => {
         }
         await addItem(db, 'blocks', { pageId, ...blockWithId })
         if (parent !== null) {
-            parent.children.push(blockWithId.id)
-            await updateItem(db, 'blocks', parent)
+            const newChildren = [...parent.children]
+            newChildren.splice(position, 0, blockWithId.id)
+            await updateItem(db, 'blocks', {
+                ...parent,
+                children: newChildren
+            })
         }
 
         return blockWithId
