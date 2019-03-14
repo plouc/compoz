@@ -19,7 +19,7 @@ const textModule: BlockModule<MarkdownBlock> = {
             content: '# Markdown Block content'
         }
     },
-    icon: AlignLeft as any,
+    icon: AlignLeft,
     renderer: MarkdownBlockRenderer,
     configurator: MarkdownBlockConfigurator,
     shouldAddChild: () => false,

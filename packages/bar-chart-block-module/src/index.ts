@@ -19,7 +19,7 @@ const barChartModule: BlockModule<BarChartBlock> = {
             dataKeys: ''
         }
     },
-    icon: BarChart as any,
+    icon: BarChart,
     renderer: BarChartBlockRenderer,
     configurator: BarChartBlockConfigurator,
     shouldAddChild: () => false,

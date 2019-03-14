@@ -22,7 +22,7 @@ const apiCallModule: BlockModule<ApiCallBlock> = {
             contextKey: 'apiData'
         }
     },
-    icon: ExternalLink as any,
+    icon: ExternalLink,
     renderer: ApiCallBlockRenderer,
     configurator: ApiCallBlockConfigurator,
     shouldAddChild: () => true,

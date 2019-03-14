@@ -24,7 +24,7 @@ const jsonModule: BlockModule<JsonBlock> = {
             data: {}
         }
     },
-    icon: Code as any,
+    icon: Code,
     renderer: JsonBlockRenderer,
     configurator: JsonBlockConfigurator,
     shouldAddChild: () => true,

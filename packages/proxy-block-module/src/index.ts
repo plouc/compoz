@@ -22,7 +22,7 @@ const proxyModule: BlockModule<ProxyBlock> = {
             id: ''
         }
     },
-    icon: Link2 as any,
+    icon: Link2,
     renderer: ProxyBlockRenderer,
     configurator: ProxyBlockConfigurator,
     shouldAddChild: () => false,

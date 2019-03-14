@@ -14,7 +14,7 @@ const containerModule: BlockModule<ContainerBlock> = {
     defaults: {
         label: 'Container'
     },
-    icon: Folder as any,
+    icon: Folder,
     renderer: ContainerBlockRenderer,
     configurator: ContainerBlockConfigurator,
     shouldAddChild: () => true,

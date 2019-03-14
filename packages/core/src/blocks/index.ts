@@ -66,6 +66,9 @@ export interface BlockModule<B extends Block<any> = Block<any>> {
     icon: FunctionComponent<{
         size?: number | string
         color?: string
+    }> | ComponentType<{
+        size?: number | string
+        color?: string
     }>
     /**
      * Defines the block's admin UI component.

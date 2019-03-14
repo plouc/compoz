@@ -17,7 +17,7 @@ const pieChartModule: BlockModule<PieChartBlock> = {
             dataContextKey: ''
         }
     },
-    icon: PieChart as any,
+    icon: PieChart,
     renderer: PieChartBlockRenderer,
     configurator: PieChartBlockConfigurator,
     shouldAddChild: () => false,
