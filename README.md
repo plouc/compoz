@@ -2,15 +2,30 @@
 
 ## The model
 
-The `page` model:
+The `page` interface:
 
-```
+```typescript
+interface Page {
+    id: string
+    label: string
+}
 ```
 
-The `block` model:
+The `block` interface:
 
+```typescript
+interface Block<T, Settings = any> {
+    type: T
+    id: string
+    path: string
+    label: string
+    tags: string[]
+    children: string[]
+    settings: Settings
+}
 ```
-```
+
+`Block` is a generic interface, `settings` depends on the block type.
 
 ## Modules
 
@@ -20,9 +35,12 @@ They must conform to the following interface:
 ```
 ```
 
-**mono** provides few pre-made modules:
+**compoz** provides few pre-made modules:
 
+- `@compoz/api-call-block-module`
+- `@compoz/bar-chart-block-module`
 - `@compoz/container-block-module`
 - `@compoz/json-block-module`
 - `@compoz/markdown-block-module`
+- `@compoz/pie-chart-block-module`
 - `@compoz/proxy-block-module`
