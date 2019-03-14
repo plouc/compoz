@@ -1,5 +1,10 @@
 # compoz
 
+**compoz** is a page builder, it abstracts the creation of Pages composed of Blocks.
+It provides an UI to configure the Pages & Blocks.
+Pages and Blocks are stored inside a Storage.
+The configuration and rendering of Blocks is driven by BlockModules.
+
 ## The model
 
 The `page` interface:
