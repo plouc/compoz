@@ -1,0 +1,220 @@
+pages:
+  - label: GitHub/npm Repo Page
+    block:
+        type: container
+        path: '0'
+        label: Root
+        children:
+          - label: GitHub Repo API Call
+            type: apiCall
+            path: 0/0
+            settings:
+                method: GET
+                url: https://api.github.com/repos/plouc/nivo
+                contextKey: repo
+            children:
+              - type: markdown
+                path: 0/0/0
+                label: GitHub Repo Intro
+                settings:
+                    enableTemplating: true
+                    content: "# ✨ ${repo.name}\n\n[![Travis CI](https://img.shields.io/travis/plouc/nivo.svg?style=flat-square)](https://travis-ci.org/plouc/nivo)\n[![nivo channel on discord](https://img.shields.io/badge/discord-nivo-61dafb.svg?style=flat-square)](https://discord.gg/n7Ft74f)\n\nwebsite: [**${repo.homepage}**](${repo.homepage})\n\nwebsite: [**${repo.homepage}**](${repo.homepage}) | language: **${repo.language}**\n\n⭐**${repo.stargazers_count}** | **${repo.forks}** forks | 🐛 **${repo.open_issues_count}**\n\n${repo.description}."
+          - label: npm @nivo/core
+            type: apiCall
+            path: 0/1
+            settings:
+                method: GET
+                url: https://cors-anywhere.herokuapp.com/https://registry.npmjs.com/@nivo/core
+                contextKey: core
+            children:
+              - path: 0/1/0
+                label: '@nivo/core info'
+                type: markdown
+                settings:
+                    enableTemplating: true
+                    content: "### ${core.name}\n[![version](https://img.shields.io/npm/v/${core.name}.svg?style=flat-square)](https://www.npmjs.com/package/${core.name})\n\n⚖️ **${core.license}**\n"
+          - label: npm @nivo/bar
+            type: apiCall
+            path: 0/2
+            settings:
+                method: GET
+                url: https://cors-anywhere.herokuapp.com/https://registry.npmjs.com/@nivo/bar
+                contextKey: bar
+            children:
+              - label: '@nivo/bar info'
+                path: 0/2/0
+                type: markdown
+                settings:
+                    enableTemplating: true
+                    content: "### ${bar.name}\n[![version](https://img.shields.io/npm/v/${bar.name}.svg?style=flat-square)](https://www.npmjs.com/package/${bar.name})\n\n⚖️ **${bar.license}**\n\n🏷️ **${bar.keywords.join(', ')}**"
+          - label: npm @nivo/sankey                 
+            type: apiCall
+            path: 0/3
+            settings:
+                method: GET
+                url: https://cors-anywhere.herokuapp.com/https://registry.npmjs.com/@nivo/sankey
+                contextKey: sankey
+            children:
+              - label: '@nivo/sankey info'
+                path: 0/3/0
+                type: markdown
+                settings:
+                    enableTemplating: true
+                    content: "### ${sankey.name}\n[![version](https://img.shields.io/npm/v/${sankey.name}.svg?style=flat-square)](https://www.npmjs.com/package/${sankey.name})\n\n⚖️ **${sankey.license}**\n\n🏷️ **${sankey.keywords.join(', ')}**"
+
+  - label: Demo Page
+    block:
+        label: Root
+        type: container
+        path: '0'
+        children:
+          - label: Header
+            type: container
+            path: 0/0
+            children:
+              - label: Things Pie Chart Data
+                type: json
+                path: 0/0/0
+                settings:
+                    contextKey: thingsPieData
+                    data:
+                      - { id: 'thingA', label: 'Thing A', value: 9 }
+                      - { id: 'thingB', label: 'Thing B', value: 12 }
+                      - { id: 'thingC', label: 'Thing C', value: 5 }
+                children:
+                  - label: Things Pie Chart
+                    type: pieChart
+                    path: 0/0/0/0
+                    settings:
+                        dataContextKey: thingsPieData
+              - label: Introduction
+                type: markdown
+                path: 0/0/1
+                settings:
+                    enableTemplating: false
+                    content: |
+                        ### Introduction
+    
+                        Lorem ipsum **dolor sit amet**, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+                        > Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+          - label: Sidebar
+            type: container
+            path: 0/1
+            children:
+              - label: Sidebar Title
+                type: markdown
+                path: 0/1/0
+                settings:
+                    enableTemplating: false
+                    content: ## Sidebar
+              - label: Address
+                type: markdown
+                path: 0/1/1
+                settings:
+                    enableTemplating: false
+                    content: |
+                        #### Address
+
+                        927 Pennington Court
+
+                        Charlottesville, VA 22901
+          - label: Content
+            type: container
+            path: 0/2
+            children:
+              - label: Content Title
+                type: markdown
+                path: 0/2/0
+                settings:
+                    enableTemplating: false
+                    content: ## Content
+              - label: Things Bar Chart Data
+                type: json
+                path: 0/2/1
+                settings:
+                    contextKey: thingsBarData
+                    data:
+                      - { id: 'thingA', groupA: 9, groupB: 7 }
+                      - { id: 'thingB', groupA: 12, groupB: 3 }
+                      - { id: 'thingC', groupA: 5, groupB: 23 }
+                children:
+                  - label: Things Bar Chart Group A
+                    type: barChart
+                    path: 0/2/1/0
+                    settings:
+                        dataContextKey: thingsBarData
+                        dataKeys: groupA
+                  - label: Things Bar Chart Group B
+                    type: barChart
+                    path: 0/2/1/1
+                    settings:
+                        dataContextKey: thingsBarData
+                        dataKeys: groupB
+              - label: Content Description
+                type: markdown
+                path: 0/2/2
+                settings:
+                    enableTemplating: false
+                    content: |
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fermentum sit amet tellus nec blandit. Donec non mauris porta, fringilla sapien in, molestie tellus. Etiam condimentum vestibulum ligula, sit amet finibus felis. Integer finibus nunc arcu, eu suscipit justo malesuada sit amet. Aliquam erat volutpat. In hac habitasse platea dictumst. Fusce tincidunt nulla ac ligula tincidunt, vitae aliquam ipsum dignissim. Donec odio urna, porttitor ut tincidunt ac, facilisis ut nunc. Donec eget est ligula. Integer ac laoreet est. Pellentesque ante nisi, facilisis vitae quam nec, aliquam fermentum diam. Cras eleifend nibh enim, sit amet hendrerit libero bibendum facilisis.
+
+                        Proin bibendum, libero id scelerisque pharetra, diam magna sollicitudin lacus, id dignissim erat mauris vel leo. Nunc metus arcu, sagittis vel velit ut, laoreet consequat urna. Quisque imperdiet pulvinar sem, id suscipit ligula efficitur a. Donec mollis scelerisque ex, at vulputate enim gravida malesuada. Donec consequat iaculis consectetur. Duis justo enim, dignissim vel sodales at, dapibus ut dui. Donec tincidunt sed arcu in consequat. Sed vel maximus nisi. Fusce nec molestie justo. Aenean feugiat pellentesque purus a porta. Aenean tempus justo a dui feugiat, nec accumsan dolor condimentum. Vivamus semper augue porttitor risus venenatis auctor. Pellentesque iaculis porta posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+                        Nunc vel sagittis urna. Nullam congue viverra lacinia. Duis eget pellentesque leo. Nullam vitae purus id lacus porta rutrum in ac est. Mauris luctus interdum mauris, sed condimentum dui. Praesent sed ultrices orci. Integer dignissim arcu ullamcorper, congue ligula at, placerat nunc. Donec tincidunt massa vitae ligula suscipit dictum.
+
+                        Vivamus fermentum mauris et nibh vestibulum volutpat. Nunc at porta neque. Vivamus convallis massa at enim tristique, vel scelerisque nisl gravida. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec aliquet turpis vel tellus egestas porta. Morbi elit lorem, egestas id felis sed, placerat dignissim nunc. Donec facilisis erat ut eleifend fringilla. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras ultricies lectus eget metus fermentum blandit. Morbi mattis bibendum sem. Vestibulum sollicitudin dui et leo fringilla, a pulvinar urna pharetra. Praesent luctus gravida lobortis. Aenean ligula felis, ultrices at tempus et, auctor non leo. Sed fringilla ante cursus fermentum tincidunt. Aliquam in tincidunt nunc, eu hendrerit nisi. Fusce in leo ut turpis accumsan accumsan.
+          - label: Footer
+            type: container
+            path: 0/3
+            children:
+              - label: Footer Title
+                type: markdown
+                path: 0/3/0
+                settings:
+                    enableTemplating: false
+                    content: ## Footer
+
+  - label: 'GitHub Profile Page'
+    block:
+        label: Root
+        type: container
+        path: '0'
+        children:
+          - label: Introduction
+            type: markdown
+            path: 0/0
+            settings:
+                enableTemplating: false
+                content: |
+                    This page shows how you can use the \`@compoz/api-call-block-module\` to build dynamic pages.
+                    When rendered, it will **fetch** a GitHub profile using its rest API and **inject** the result in the
+                    current **context**.
+
+                    Please note that the text blocks nested inside the \`apiCall\` block have the \`useTemplating\` settings
+                    set to \`true\` which is required to be able to interpolate their content.
+          - label: GitHub User API Call
+            type: apiCall
+            path: 0/1
+            settings:
+                method: GET
+                url: https://api.github.com/users/plouc
+                contextKey: user
+            children:
+              - label: GitHub User Intro
+                type: markdown
+                path: 0/1/0
+                settings:
+                    enableTemplating: true
+                    content: |
+                        ## ${user.name} - @${user.login}
+
+                        ![${user.name}](${user.avatar_url})
+
+                        @${user.login} has  **${user.followers}** followers
+                        and follows **${user.following}** users.
+                        He lives in ${user.location} and works at ${user.company}.
+
+                        You can have a look at his repositories [here](${user.html_url}?tab=repositories).

@@ -6,8 +6,7 @@ import {
     builderStateContext,
     builderDispatchContext,
     builderReducer,
-    builderStorageContext,
-    BuilderAction
+    storageContext
 } from '../store'
 
 const defaultInitialState: BuilderState = {
@@ -39,11 +38,11 @@ const BuilderProvider: FunctionComponent<{
     return (
         <modulesRegistryContext.Provider value={modules}>
             <builderDispatchContext.Provider value={dispatch}>
-                <builderStorageContext.Provider value={storage}>
+                <storageContext.Provider value={storage}>
                     <builderStateContext.Provider value={state}>
                         {children}
                     </builderStateContext.Provider>
-                </builderStorageContext.Provider>
+                </storageContext.Provider>
             </builderDispatchContext.Provider>
         </modulesRegistryContext.Provider>
     )

@@ -3,9 +3,9 @@ import { Storage } from '@compoz/core'
 import { BuilderState } from './state'
 import { BuilderAction } from './actions'
 
-export const builderStorageContext = createContext<Storage>({} as any)
+export const storageContext = createContext<Storage>({} as any)
 
-export const useBuilderStorage = () => useContext(builderStorageContext)
+export const useStorage = () => useContext(storageContext)
 
 export const builderStateContext = createContext<BuilderState>({
     currentPageId: null,
@@ -39,7 +39,7 @@ export const useDispatchBinding = (
 ) => {
     const dispatch = useBuilderDispatch()
     const state = useBuilderState()
-    const storage = useBuilderStorage()
+    const storage = useStorage()
     const bound = useMemo(
         () => fn(dispatch, state, storage),
         [dispatch, state, storage]

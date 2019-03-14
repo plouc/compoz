@@ -6,7 +6,7 @@ import Import from './Import'
 
 const BuilderView: FunctionComponent = () => {
     const state = useBuilderState()
-    const [mode, setMode] = useState<'page' | 'import'>('page')
+    const [mode, setMode] = useState<'page' | 'import'>('import')
 
     return (
         <Container>
