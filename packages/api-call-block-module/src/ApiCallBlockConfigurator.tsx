@@ -42,6 +42,16 @@ const ApiCallBlockConfigurator: BlockConfigurator<ApiCallBlock> = ({ block }) =>
                     </>
                 )}
             />
+            <FieldLabel>enable templating</FieldLabel>
+            <Field
+                name="settings.enableTemplating"
+                render={({ field, form }: FieldProps<ApiCallBlockSettings>) => (
+                    <div>
+                        <input type="checkbox" {...field} />
+                        {form.touched.enableTemplating && form.errors.enableTemplating && form.errors.enableTemplating}
+                    </div>
+                )}
+            />
         </FormGrid>
     )
 }

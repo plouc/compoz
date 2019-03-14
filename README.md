@@ -120,6 +120,7 @@ interface BlockModule<B extends Block<any> = Block<any>> {
 - `@compoz/api-call-block-module`
 - `@compoz/bar-chart-block-module`
 - `@compoz/container-block-module`
+- `@compoz/iterator-block-module`
 - `@compoz/json-block-module`
 - `@compoz/markdown-block-module`
 - `@compoz/pie-chart-block-module`

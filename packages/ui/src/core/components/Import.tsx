@@ -25,7 +25,8 @@ const flattenBlock = (block: any, stack: any[] = []) => {
 
 const run = async (storage: Storage, data: any) => {
     for (const page of data.pages) {
-        const createdPage = await storage.createPage(omit(page, 'block'))
+        const rootBlock = omit(page.block, 'children')
+        const createdPage = await storage.createPage(omit(page, 'block'), rootBlock)
         const blocks = flattenBlock(page.block)
         const reversed = [...blocks].reverse()
         const idsMapping: { [k: number]: string } = {}

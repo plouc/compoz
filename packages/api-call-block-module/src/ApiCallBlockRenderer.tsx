@@ -1,9 +1,10 @@
 import React, { useMemo, useEffect, useState } from 'react'
 import { BlockRenderer } from '@compoz/core'
-import { ChildBlockRenderer } from '@compoz/ui'
+import { ChildBlockRenderer, useSettingTemplate } from '@compoz/ui'
 import { ApiCallBlock } from './index'
 
 const ApiCallBlockRenderer: BlockRenderer<ApiCallBlock> = ({ block, pageContext, parentContext }) => {
+    const url = useSettingTemplate(block.settings.enableTemplating, block.settings.url, parentContext)
     const [apiResponse, setApiResponse] = useState<{
         isFetching: boolean
         error: null | Error
@@ -15,7 +16,7 @@ const ApiCallBlockRenderer: BlockRenderer<ApiCallBlock> = ({ block, pageContext,
     })
     const callData = useEffect(
         (): any => {
-            fetch(block.settings.url, {
+            fetch(url, {
                 method: block.settings.method,
             })
                 .then(res => res.json())
@@ -29,7 +30,7 @@ const ApiCallBlockRenderer: BlockRenderer<ApiCallBlock> = ({ block, pageContext,
         
             return () => {}
         },
-        [block.settings]
+        [url, block.settings]
     )
     const newParentContext = useMemo(
         () => {

@@ -8,6 +8,7 @@ export type ApiCallBlockSettings = {
     url: string
     body?: any
     contextKey: string
+    enableTemplating: boolean
 }
 
 export type ApiCallBlock = Block<'apiCall', ApiCallBlockSettings>
@@ -19,7 +20,8 @@ const apiCallModule: BlockModule<ApiCallBlock> = {
         settings: {
             method: 'GET',
             url: '',
-            contextKey: 'apiData'
+            contextKey: 'apiData',
+            enableTemplating: false,
         }
     },
     icon: ExternalLink,

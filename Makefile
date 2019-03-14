@@ -15,7 +15,6 @@ init: ## init respository, install deps, build packages
 	@${MAKE} pkgs-install
 	@${MAKE} pkgs-build
 	@${MAKE} app-install
-#	@${MAKE} pkgs-link
 
 pkgs-install: ## install all packages dependencies
 	@yarn install
@@ -28,6 +27,7 @@ pkgs-build: ## build all packages
 	@yarn lerna --loglevel warn run build --scope @compoz/api-call-block-module
 	@yarn lerna --loglevel warn run build --scope @compoz/bar-chart-block-module
 	@yarn lerna --loglevel warn run build --scope @compoz/container-block-module
+	@yarn lerna --loglevel warn run build --scope @compoz/iterator-block-module
 	@yarn lerna --loglevel warn run build --scope @compoz/json-block-module
 	@yarn lerna --loglevel warn run build --scope @compoz/markdown-block-module
 	@yarn lerna --loglevel warn run build --scope @compoz/pie-chart-block-module
@@ -38,21 +38,6 @@ pkg-dev-%: ## watch a package for development
 
 pkgs-dev: ## watch all packages for development
 	@yarn lerna run dev --parallel
-
-pkgs-link: ## link all packages to sample app
-	@cd packages/container-block-module && yarn link
-	@cd packages/core && yarn link
-	@cd packages/json-block-module && yarn link
-	@cd packages/markdown-block-module && yarn link
-	@cd packages/proxy-block-module && yarn link
-	@cd packages/ui && yarn link
-	@cd sample-app && yarn link \
-        @compoz/container-block-module \
-        @compoz/core \
-        @compoz/json-block-module \
-        @compoz/markdown-block-module \
-        @compoz/proxy-block-module \
-        @compoz/ui
 
 app-install: ## install sample app dependencies
 	@cd sample-app && yarn install

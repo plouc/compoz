@@ -2,61 +2,52 @@ pages:
   - label: GitHub/npm Repo Page
     block:
         type: container
-        path: '0'
         label: Root
         children:
           - label: GitHub Repo API Call
             type: apiCall
-            path: 0/0
             settings:
                 method: GET
                 url: https://api.github.com/repos/plouc/nivo
                 contextKey: repo
             children:
               - type: markdown
-                path: 0/0/0
                 label: GitHub Repo Intro
                 settings:
                     enableTemplating: true
                     content: "# ✨ ${repo.name}\n\n[![Travis CI](https://img.shields.io/travis/plouc/nivo.svg?style=flat-square)](https://travis-ci.org/plouc/nivo)\n[![nivo channel on discord](https://img.shields.io/badge/discord-nivo-61dafb.svg?style=flat-square)](https://discord.gg/n7Ft74f)\n\nwebsite: [**${repo.homepage}**](${repo.homepage})\n\nwebsite: [**${repo.homepage}**](${repo.homepage}) | language: **${repo.language}**\n\n⭐**${repo.stargazers_count}** | **${repo.forks}** forks | 🐛 **${repo.open_issues_count}**\n\n${repo.description}."
           - label: npm @nivo/core
             type: apiCall
-            path: 0/1
             settings:
                 method: GET
                 url: https://cors-anywhere.herokuapp.com/https://registry.npmjs.com/@nivo/core
                 contextKey: core
             children:
-              - path: 0/1/0
-                label: '@nivo/core info'
+              - label: '@nivo/core info'
                 type: markdown
                 settings:
                     enableTemplating: true
                     content: "### ${core.name}\n[![version](https://img.shields.io/npm/v/${core.name}.svg?style=flat-square)](https://www.npmjs.com/package/${core.name})\n\n⚖️ **${core.license}**\n"
           - label: npm @nivo/bar
             type: apiCall
-            path: 0/2
             settings:
                 method: GET
                 url: https://cors-anywhere.herokuapp.com/https://registry.npmjs.com/@nivo/bar
                 contextKey: bar
             children:
               - label: '@nivo/bar info'
-                path: 0/2/0
                 type: markdown
                 settings:
                     enableTemplating: true
                     content: "### ${bar.name}\n[![version](https://img.shields.io/npm/v/${bar.name}.svg?style=flat-square)](https://www.npmjs.com/package/${bar.name})\n\n⚖️ **${bar.license}**\n\n🏷️ **${bar.keywords.join(', ')}**"
           - label: npm @nivo/sankey                 
             type: apiCall
-            path: 0/3
             settings:
                 method: GET
                 url: https://cors-anywhere.herokuapp.com/https://registry.npmjs.com/@nivo/sankey
                 contextKey: sankey
             children:
               - label: '@nivo/sankey info'
-                path: 0/3/0
                 type: markdown
                 settings:
                     enableTemplating: true
@@ -66,15 +57,12 @@ pages:
     block:
         label: Root
         type: container
-        path: '0'
         children:
           - label: Header
             type: container
-            path: 0/0
             children:
               - label: Things Pie Chart Data
                 type: json
-                path: 0/0/0
                 settings:
                     contextKey: thingsPieData
                     data:
@@ -84,12 +72,10 @@ pages:
                 children:
                   - label: Things Pie Chart
                     type: pieChart
-                    path: 0/0/0/0
                     settings:
                         dataContextKey: thingsPieData
               - label: Introduction
                 type: markdown
-                path: 0/0/1
                 settings:
                     enableTemplating: false
                     content: |
@@ -102,17 +88,14 @@ pages:
                         laboris nisi ut aliquip ex ea commodo consequat.
           - label: Sidebar
             type: container
-            path: 0/1
             children:
               - label: Sidebar Title
                 type: markdown
-                path: 0/1/0
                 settings:
                     enableTemplating: false
                     content: ## Sidebar
               - label: Address
                 type: markdown
-                path: 0/1/1
                 settings:
                     enableTemplating: false
                     content: |
@@ -123,17 +106,14 @@ pages:
                         Charlottesville, VA 22901
           - label: Content
             type: container
-            path: 0/2
             children:
               - label: Content Title
                 type: markdown
-                path: 0/2/0
                 settings:
                     enableTemplating: false
                     content: ## Content
               - label: Things Bar Chart Data
                 type: json
-                path: 0/2/1
                 settings:
                     contextKey: thingsBarData
                     data:
@@ -143,19 +123,16 @@ pages:
                 children:
                   - label: Things Bar Chart Group A
                     type: barChart
-                    path: 0/2/1/0
                     settings:
                         dataContextKey: thingsBarData
                         dataKeys: groupA
                   - label: Things Bar Chart Group B
                     type: barChart
-                    path: 0/2/1/1
                     settings:
                         dataContextKey: thingsBarData
                         dataKeys: groupB
               - label: Content Description
                 type: markdown
-                path: 0/2/2
                 settings:
                     enableTemplating: false
                     content: |
@@ -168,11 +145,9 @@ pages:
                         Vivamus fermentum mauris et nibh vestibulum volutpat. Nunc at porta neque. Vivamus convallis massa at enim tristique, vel scelerisque nisl gravida. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec aliquet turpis vel tellus egestas porta. Morbi elit lorem, egestas id felis sed, placerat dignissim nunc. Donec facilisis erat ut eleifend fringilla. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras ultricies lectus eget metus fermentum blandit. Morbi mattis bibendum sem. Vestibulum sollicitudin dui et leo fringilla, a pulvinar urna pharetra. Praesent luctus gravida lobortis. Aenean ligula felis, ultrices at tempus et, auctor non leo. Sed fringilla ante cursus fermentum tincidunt. Aliquam in tincidunt nunc, eu hendrerit nisi. Fusce in leo ut turpis accumsan accumsan.
           - label: Footer
             type: container
-            path: 0/3
             children:
               - label: Footer Title
                 type: markdown
-                path: 0/3/0
                 settings:
                     enableTemplating: false
                     content: ## Footer
@@ -181,11 +156,9 @@ pages:
     block:
         label: Root
         type: container
-        path: '0'
         children:
           - label: Introduction
             type: markdown
-            path: 0/0
             settings:
                 enableTemplating: false
                 content: |
@@ -197,7 +170,6 @@ pages:
                     set to \`true\` which is required to be able to interpolate their content.
           - label: GitHub User API Call
             type: apiCall
-            path: 0/1
             settings:
                 method: GET
                 url: https://api.github.com/users/plouc
@@ -205,7 +177,6 @@ pages:
             children:
               - label: GitHub User Intro
                 type: markdown
-                path: 0/1/0
                 settings:
                     enableTemplating: true
                     content: |

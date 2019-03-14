@@ -1,0 +1,35 @@
+{
+  "name": "@compoz/iterator-block-module",
+  "version": "0.1.3",
+  "repository": "https://github.com/plouc/compoz/tree/master/packages/iterator-block-module",
+  "author": "Raphaël Benitte <benitteraphael@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "compoz",
+    "compoz-block-module",
+    "iterator"
+  ],
+  "main": "build/index.js",
+  "typings": "build/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "build"
+  ],
+  "dependencies": {
+    "react-feather": "1.1.6"
+  },
+  "devDependencies": {
+    "typescript": "^3.3.3333"
+  },
+  "peerDependencies": {
+    "@compoz/core": "^0.1.1",
+    "@compoz/ui": "^0.1.1",
+    "react": "^16.8.4"
+  },
+  "scripts": {
+    "dev": "tsc --watch --pretty --preserveWatchOutput",
+    "build": "rm -rf build && tsc --pretty"
+  }
+}
