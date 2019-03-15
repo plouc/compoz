@@ -7,7 +7,7 @@ import { ProxyBlock } from './index'
 const ProxyBlockConfigurator: BlockConfigurator<ProxyBlock> = ({ block }) => {
     const blocks = usePageBlocks()
     const allowedBlocks = blocks.filter(b => {
-        return b.id !== block.id && b.path !== '0' && !['container', 'proxy'].includes(b.type)
+        return b.id !== block.id && !['container', 'proxy'].includes(b.type)
     })
 
     return (

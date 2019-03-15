@@ -5,7 +5,7 @@ import { invalidatePageBlocks } from '../../pages'
 
 export interface CreateBlockRequestAction {
     type: 'createBlockRequest'
-    block: Omit<Block<any>, 'id' | 'path' | 'children'>
+    block: Omit<Block<any>, 'id' | 'children'>
     pageId?: string
     position: number
     parentId?: string
@@ -24,7 +24,7 @@ export const createBlock = (
     state: BuilderState,
     storage: Storage
 ) => async (
-    block: Omit<Block<any>, 'id' | 'path' | 'children'>,
+    block: Omit<Block<any>, 'id' | 'children'>,
     {
         pageId,
         position,
@@ -61,7 +61,7 @@ export const createBlock = (
 
 export interface RemoveBlockAction {
     type: 'removeBlock'
-    path: string
+    id: string
 }
 
 export interface UpdateBlockAction<B extends Block<any> = Block<any>> {

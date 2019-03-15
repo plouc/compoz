@@ -1,10 +1,5 @@
-import { Omit, uuid } from './helpers'
-
-const PathDelimiter: '/' = '/'
-
 export interface TreeNode {
     id: string
-    path: string
     children: string[]
 }
 

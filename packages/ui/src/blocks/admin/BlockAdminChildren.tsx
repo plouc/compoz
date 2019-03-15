@@ -42,7 +42,6 @@ const BlockChildren: FunctionComponent<Props> = ({ block, depth, shouldAddChild 
 
         const creatingModule = registry[creatingType.type]
         return {
-            path: '',
             label: creatingModule.defaults.label,
             type: creatingType.type,
             tags: [],
@@ -50,7 +49,7 @@ const BlockChildren: FunctionComponent<Props> = ({ block, depth, shouldAddChild 
             settings: creatingModule.defaults.settings || {}
         }
     }, [creatingType, registry])
-    const childBlocks = useMemo(() => getNodesById(blocks, block.children), [
+    const childBlocks = useMemo(() => getNodesById<Block<any>>(blocks, block.children), [
         blocks,
         block.children
     ])

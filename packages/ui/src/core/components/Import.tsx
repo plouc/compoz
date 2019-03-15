@@ -35,7 +35,9 @@ const run = async (storage: Storage, data: any) => {
             if (block.childPositions !== undefined) {
                 block.children = block.childPositions.map((position: number) => idsMapping[position])
             }
-            const createdBlock = await storage.createBlock(omit(block, 'position', 'childPositions'), createdPage.id)
+            const createdBlock = await storage.createBlock(omit(block, 'position', 'childPositions'), {
+                pageId: createdPage.id
+            })
             idsMapping[block.position] = createdBlock.id
         }
     }

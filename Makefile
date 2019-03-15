@@ -33,6 +33,9 @@ pkgs-build: ## build all packages
 	@yarn lerna --loglevel warn run build --scope @compoz/pie-chart-block-module
 	@yarn lerna --loglevel warn run build --scope @compoz/proxy-block-module
 
+pkg-build-%: ## build a package
+	@yarn lerna run build --scope @compoz/${*}
+
 pkg-dev-%: ## watch a package for development
 	@yarn lerna run dev --scope @compoz/${*}
 
