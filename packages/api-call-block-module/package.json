@@ -1,5 +1,6 @@
 {
   "name": "@compoz/api-call-block-module",
+  "description": "This module add ability to call external APIs to populate the current context",
   "version": "0.1.3",
   "repository": "https://github.com/plouc/compoz/tree/master/packages/api-call-block-module",
   "author": "Raphaël Benitte <benitteraphael@gmail.com>",

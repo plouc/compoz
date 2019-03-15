@@ -14,6 +14,10 @@ export type ApiCallBlockSettings = {
 export type ApiCallBlock = Block<'apiCall', ApiCallBlockSettings>
 
 const apiCallModule: BlockModule<ApiCallBlock> = {
+    description: `
+This module add ability to call external APIs to populate the current context.
+`,
+    version: '0.1.3',
     schema: {},
     defaults: {
         label: 'API call',

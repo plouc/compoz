@@ -6,6 +6,7 @@ export { default as BlockAdminHeader } from './BlockAdminHeader'
 export { default as BlockIcon } from './BlockIcon'
 export { default as CreateBlock } from './CreateBlock'
 export { default as RawBlockData } from './RawBlockData'
+export { default as BlockModulesList } from './BlockModulesList'
 
 
 

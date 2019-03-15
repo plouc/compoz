@@ -11,6 +11,11 @@ export type ProxyBlock = Block<
 >
 
 const proxyModule: BlockModule<ProxyBlock> = {
+    description: `
+Add ability to proxy another block,
+it's useful to reuse already defined blocks.
+`,
+    version: '0.1.3',
     schema: {
         id: {
             type: 'string'

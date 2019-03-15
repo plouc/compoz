@@ -11,6 +11,8 @@ export type TextBlockSettings = {
 export type TextBlock = Block<'text', TextBlockSettings>
 
 const textModule: BlockModule<TextBlock> = {
+    description: `A simple module to inject raw text content.`,
+    version: '0.1.0',
     schema: {},
     defaults: {
         label: 'Text',

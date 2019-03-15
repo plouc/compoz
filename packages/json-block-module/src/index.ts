@@ -12,6 +12,11 @@ export type JsonBlock = Block<
 >
 
 const jsonModule: BlockModule<JsonBlock> = {
+    description: `
+Add ability to inject static json data in context
+to be available for child blocks.
+`,
+    version: '0.1.3',
     schema: {
         data: {
             type: 'object'

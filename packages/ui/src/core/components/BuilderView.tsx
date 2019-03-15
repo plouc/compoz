@@ -1,12 +1,13 @@
 import React, { FunctionComponent, useState } from 'react'
 import styled from '../../theming'
 import { PagesNav, PageAdmin } from '../../pages'
+import { BlockModulesList } from '../../blocks'
 import { useBuilderState } from '../store'
 import Import from './Import'
 
 const BuilderView: FunctionComponent = () => {
     const state = useBuilderState()
-    const [mode, setMode] = useState<'page' | 'import'>('page')
+    const [mode, setMode] = useState<'page' | 'import' | 'modules'>('modules')
 
     return (
         <Container>
@@ -14,9 +15,11 @@ const BuilderView: FunctionComponent = () => {
                 <Logo>compoz</Logo>
                 <PagesNav setPageMode={() => setMode('page')} />
                 <ImportButton onClick={() => setMode('import')}>Import</ImportButton>
+                <ImportButton onClick={() => setMode('modules')}>Modules</ImportButton>
             </Sidebar>
             {mode === 'page' && state.currentPageId !== null && <PageAdmin />}
             {mode === 'import' && <Import/>}
+            {mode === 'modules' && <BlockModulesList />}
         </Container>
     )
 }

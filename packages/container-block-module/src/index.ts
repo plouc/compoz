@@ -6,6 +6,10 @@ import ContainerBlockConfigurator from './ContainerBlockConfigurator'
 export type ContainerBlock = Block<'container'>
 
 const containerModule: BlockModule<ContainerBlock> = {
+    description: `
+Add ability to render child blocks under a single block.
+`,
+    version: '0.1.3',
     schema: {
         text: {
             type: 'longtext'

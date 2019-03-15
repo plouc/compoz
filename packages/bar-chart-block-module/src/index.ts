@@ -11,6 +11,10 @@ export type BarChartBlockSettings = {
 export type BarChartBlock = Block<'barChart', BarChartBlockSettings>
 
 const barChartModule: BlockModule<BarChartBlock> = {
+    description: `
+A binding to @nivo/bar package Bar Chart.
+    `,
+    version: '0.1.3',
     schema: {},
     defaults: {
         label: 'Bar Chart',

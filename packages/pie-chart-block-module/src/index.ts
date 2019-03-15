@@ -10,6 +10,10 @@ export type PieChartBlockSettings = {
 export type PieChartBlock = Block<'pieChart', PieChartBlockSettings>
 
 const pieChartModule: BlockModule<PieChartBlock> = {
+    description: `
+A binding to @nivo/pie package Pie Chart.
+    `,
+    version: '0.1.3',
     schema: {},
     defaults: {
         label: 'Pie Chart',

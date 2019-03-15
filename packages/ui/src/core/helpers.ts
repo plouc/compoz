@@ -16,5 +16,5 @@ export const intToRGB = (i: number) => {
 }
 
 export const colorByBlockType = (type: string) => {
-    return `#${intToRGB(hashCode(type))}55`
+    return `#${intToRGB(hashCode(type))}`
 }

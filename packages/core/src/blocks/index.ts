@@ -49,6 +49,16 @@ export type BlockConfigurator<B extends Block<any>> = FunctionComponent<{
 }>
 
 export interface BlockModule<B extends Block<any> = Block<any>> {
+    /**
+     * Briefly explain the functionnality of the module.
+     * Should be extracted from `package.json` `description` field.
+     */
+    description: string
+    /**
+     * Expose the version of the package.
+     * Should be extracted from `package.json` `version` field.
+     */
+    version: string
     schema: any
     /**
      * Those values are used to pre-populate

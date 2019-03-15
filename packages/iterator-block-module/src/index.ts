@@ -1,4 +1,4 @@
-import { MoreVertical } from 'react-feather'
+import { Repeat } from 'react-feather'
 import { Block, BlockModule } from '@compoz/core'
 import IteratorBlockRenderer from './IteratorBlockRenderer'
 import IteratorBlockConfigurator from './IteratorBlockConfigurator'
@@ -14,6 +14,11 @@ export type IteratorBlockSettings = {
 export type IteratorBlock = Block<'iterator', IteratorBlockSettings>
 
 const iteratorModule: BlockModule<IteratorBlock> = {
+    description: `
+Add ability to iterate over an array from parent context
+and render every child for each item of this array.
+`,
+    version: '0.1.3',
     schema: {},
     defaults: {
         label: 'Iterator',
@@ -21,7 +26,7 @@ const iteratorModule: BlockModule<IteratorBlock> = {
             contextKey: 'apiData',
         }
     },
-    icon: MoreVertical,
+    icon: Repeat,
     renderer: IteratorBlockRenderer,
     configurator: IteratorBlockConfigurator,
     shouldAddChild: () => true,

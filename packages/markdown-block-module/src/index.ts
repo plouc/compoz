@@ -11,12 +11,17 @@ export type MarkdownBlockSettings = {
 export type MarkdownBlock = Block<'markdown', MarkdownBlockSettings>
 
 const textModule: BlockModule<MarkdownBlock> = {
+    description: `
+Add ability render markdown, it also supports using data
+from the parent context.
+`,
+    version: '0.1.3',
     schema: {},
     defaults: {
         label: 'Markdown',
         settings: {
             enableTemplating: false,
-            content: '# Markdown Block content'
+            content: ''
         }
     },
     icon: AlignLeft,
