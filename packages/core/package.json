@@ -1,6 +1,6 @@
 {
   "name": "@compoz/core",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "repository": "https://github.com/plouc/compoz/tree/master/packages/core",
   "author": "Raphaël Benitte <benitteraphael@gmail.com>",
   "license": "MIT",

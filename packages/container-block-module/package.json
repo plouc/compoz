@@ -1,7 +1,7 @@
 {
   "name": "@compoz/container-block-module",
   "description": "Add ability to render child blocks under a single block",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "repository": "https://github.com/plouc/compoz/tree/master/packages/container-block-module",
   "author": "Raphaël Benitte <benitteraphael@gmail.com>",
   "license": "MIT",

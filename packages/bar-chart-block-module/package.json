@@ -1,6 +1,6 @@
 {
   "name": "@compoz/bar-chart-block-module",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "@compoz binding for @nivo/bar package",
   "repository": "https://github.com/plouc/compoz/tree/master/packages/bar-chart-block-module",
   "author": "Raphaël Benitte <benitteraphael@gmail.com>",

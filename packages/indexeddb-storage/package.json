@@ -1,6 +1,6 @@
 {
   "name": "@compoz/indexeddb-storage",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "repository": "https://github.com/plouc/compoz/tree/master/packages/indexeddb-storage",
   "author": "Raphaël Benitte <benitteraphael@gmail.com>",
   "license": "MIT",
@@ -17,8 +17,6 @@
   "files": [
     "build"
   ],
-  "dependencies": {
-  },
   "devDependencies": {
     "typescript": "^3.3.3333"
   },

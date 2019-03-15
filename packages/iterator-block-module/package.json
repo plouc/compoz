@@ -1,7 +1,7 @@
 {
   "name": "@compoz/iterator-block-module",
   "description": "Add ability to iterate over an array from parent context",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "repository": "https://github.com/plouc/compoz/tree/master/packages/iterator-block-module",
   "author": "Raphaël Benitte <benitteraphael@gmail.com>",
   "license": "MIT",
